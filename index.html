@@ -3,11 +3,35 @@
   <style type="text/css">
     body {margin: 0; padding: 0; background-color: #000; overflow: hidden;}
     iframe { overflow: hidden; width: 100%; height: 100%; border: 0; display: none;}
+    #overlay { 
+      position: absolute; 
+      color: white;
+      top: 0;
+      left: 0;
+      width: 5%;
+      height: 768px;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+    #overlay.open {
+      background-color: green;
+    }
+    #overlay.closed {
+      display: none;
+    }
+    #overlay .vertical {
+      transform:rotate(-90deg);
+      -webkit-transform:rotate(-90deg); /* Safari and Chrome */
+      width: 768px;
+      height: 1em;
+      margin-left: -360px;
+      margin-top: 200px;
+    }
   </style>
 </head>
 <body onload="onload()">
   <script language="javascript" >
-    var numberOfPanes = 3;  // set this when you add/remove frames
+    var numberOfPanes = 4;  // set this when you add/remove frames
     var pane = 1;	   // just a counter
     var interval = 5000;  // milliseconds between iframes
     var intervalID=self.setInterval("swap()", interval); // begin swaps
@@ -44,12 +68,38 @@
       }
     }
   </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<div id="overlay" class="closed">
+  <div id="door_status" class="vertical"></div>
+</div>
 
 <iframe id="frame1" src="splash.html"></iframe>
 
 <iframe id="frame2" src="slideshow.html"></iframe>
 
-<iframe id="frame3" src="ads.html"></iframe>
+<iframe id="frame3" src="calendar.html"></iframe>
+
+<iframe id="frame4" src="ads.html"></iframe>
+
+  <script type="text/javascript">
+    var url = 'http://intranet.heatsynclabs.org/cgi-bin/spaceapi.rb';
+  
+    var doorStatus = $('#door_status');
+    $.get(url, function( data ) {
+      console.log( data );
+      if(doorStatus){
+        if(data.open){
+          $("#overlay").addClass("open").removeClass("closed");
+          doorStatus.html('We are currently OPEN! Come on inside!');
+        } else {
+          $("#overlay").addClass("closed").removeClass("open");
+          doorStatus.html('We are currently closed. Come back later!');
+        }
+      }
+    });
+  </script>
+
 
 </body>
 </html>
