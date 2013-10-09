@@ -2,35 +2,66 @@
 <head>
 <style type="text/css">
   body { background-color: #f99b0c;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	}
-h1,h2 {
-color: #fff;
-font-family: Bitstream Charter, Georgia, Times, serif;
-font-weight: bold;
-text-align: center;
-margin: 0;
-}
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+  h1,h2,h3 {
+    color: #fff;
+    font-family: Bitstream Charter, Georgia, Times, serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+  }
 
-h1 { 
-line-height: 48pt;
-font-size: 48pt;
-}
+  h1 { 
+  line-height: 48pt;
+  font-size: 48pt;
+  }
 
-h2 {
-line-height: 28pt;
-font-size: 28pt;
-}
-#calendar { text-align: center; }	
+  h2 {
+  line-height: 28pt;
+  font-size: 28pt;
+  }
+
+  h3 {
+  line-height: 20pt;
+  font-size: 20pt;
+  font-style: italic;
+  }
+
+  #calendar {
+    height: 760px;
+    width: 90%;
+    margin: auto;
+  }
+  .fc-header {
+    display: none;
+  }
 </style>
+
+<link rel='stylesheet' type='text/css' href='js/fullcalendar/fullcalendar.css' />
+<script type='text/javascript' src="js/lib/jquery.min.js"></script>
+<script type='text/javascript' src="js/fullcalendar/fullcalendar.js"></script>
+<script type='text/javascript' src='js/fullcalendar/gcal.js'></script>
+
 </head>
 <body>
-  <div id="calendar">
-    <iframe src="http://www.google.com/calendar/hosted/heatsynclabs.org/embed?src=heatsynclabs.org_p9rcn09d64q56m7rg07jptmrqc%40group.calendar.google.com&amp;ctz=America/Phoenix" frameborder="0" scrolling="no" width="960" height="640"></iframe>
-  </div>
+  <h2>HeatSync Labs Public Calendar</h2>
+  <h3>You're invited!</h3>
+  <br/>
+  <div id="calendar"></div>
 
-
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#calendar').fullCalendar({
+      events: 'https://www.google.com/calendar/feeds/heatsynclabs.org_p9rcn09d64q56m7rg07jptmrqc%40group.calendar.google.com/public/basic',
+      eventColor: '#696969',
+      weekMode: 'liquid',
+      height: 680,
+      timeFormat: 'h(:mm)t{ - h(:mm)t}'
+    });
+});
+</script>
 </body>
 </html>

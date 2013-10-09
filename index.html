@@ -31,7 +31,7 @@
 </head>
 <body onload="onload()">
   <script language="javascript" >
-    var numberOfPanes = 4;  // set this when you add/remove frames
+    var numberOfPanes = 5;  // set this when you add/remove frames
     var pane = 1;	   // just a counter
     var interval = 5000;  // milliseconds between iframes
     var intervalID=self.setInterval("swap()", interval); // begin swaps
@@ -61,9 +61,9 @@
 
       nextPane = document.getElementById("frame"+pane);
       nextPane.style.display="block";
-      if(pane == 2) {
-        // pane 2 is new; delay interval so it stays longer
-	self.clearInterval(intervalID);
+      if(pane == 3) {
+        // pane 3 is slideshow; delay interval so it stays longer
+	      self.clearInterval(intervalID);
         intervalID=self.setInterval("swap()", interval*3);
       }
     }
@@ -76,11 +76,13 @@
 
 <iframe id="frame1" src="splash.html"></iframe>
 
-<iframe id="frame2" src="slideshow.html"></iframe>
+<iframe id="frame2" src="description.html"></iframe>
 
-<iframe id="frame3" src="calendar.html"></iframe>
+<iframe id="frame3" src="slideshow.html"></iframe>
 
-<iframe id="frame4" src="ads.html"></iframe>
+<iframe id="frame4" src="calendar.html"></iframe>
+
+<iframe id="frame5" src="ads.html"></iframe>
 
   <script type="text/javascript">
     var url = 'http://intranet.heatsynclabs.org/cgi-bin/spaceapi.rb';

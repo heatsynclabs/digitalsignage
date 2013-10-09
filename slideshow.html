@@ -17,8 +17,25 @@
 			height: 190px;
 			margin: 5px; 
 			padding: 1em 1% 2.5em; }
-		  #cycle li { width: 100% !important; 
-		  	text-align: center !important; }
+		  #cycle li { 
+		  	width: 1024px; 
+		  	text-align: center !important; 
+		  	height: 681px;
+		  }
+		  #cycle div {
+		  	color: white;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0,0,0,0.5);;
+			font-size: 2em;
+			padding: 0.5em 1em;
+		  }
+		  #cycle div h3,
+		  #cycle div h4,
+		  #cycle div h5 {
+		  	display: inline;
+		  }
 		  h1 { color: #F99B0C; 
 			font-family: Bitstream Charter, Georgia, Times, serif; 
 			font-weight: bold; 
@@ -79,11 +96,11 @@ settings.itemCallback.call(container,item);}});if($.isFunction(callback)){callba
 			$('#cycle').jflickrfeed({
 				limit: 50,
 				qstrings: {
-					id: '60827818@N07'
+					id: '60827818@N07',
+     				tags: 'publish'
 				},
 				itemTemplate: '<li><img src="{{image_b}}" alt="{{title}}" /><div>{{title}}</div></li>'
 			}, function(data) {
-				$('#cycle div').hide();
 				$('#cycle').cycle({
 					timeout: 3000
 				});
@@ -98,7 +115,7 @@ settings.itemCallback.call(container,item);}});if($.isFunction(callback)){callba
 	</head> 
 	<body> 
 	
-<h1>Photos from the HeatSync community:</h1> 
+<h1>Photos from Inside HeatSync:</h1> 
 		<div id="container"> 
 			 
 			<ul id="cycle"></ul> 
