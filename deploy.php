@@ -12,7 +12,7 @@
 		'echo $PWD',
 		'whoami',
 		'git branch -v',
-		'ssh-agent bash -c "ssh-add /var/www/.ssh/id_rsa; git pull origin 2>&1"',
+		'ssh-agent bash -c "ssh-add /var/www/.ssh/id_rsa; git pull 2>&1"',
 		'git status',
 		'git branch -v',
 	);
