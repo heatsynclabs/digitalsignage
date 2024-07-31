@@ -1,3 +1,5 @@
+> This is no longer supported, since we moved to PiSignage for the front displays
+
 HeatSync Labs Digital Signage
 ==============
 
